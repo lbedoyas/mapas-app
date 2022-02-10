@@ -11,7 +11,7 @@ export class PlacesApiClient extends HttpClient {
     }
     public override get<T>(url: string, options: {
         params?: HttpParams | {
-            [param: string]: string | string[];
+            [param: string]: string | number | boolean | ReadonlyArray<string | number | boolean>;
         };
     }) {
         url = this.baseUrl + url;

@@ -34,7 +34,7 @@ export class PlacesService {
     });
   }
   getPlaceByQuery(query: string) {
-    if (this.useLocation) throw Error('No hay userLocation');
+    if (!this.useLocation) throw Error('No hay userLocation');
     this.isLoadingPlaces = true;
     const url = `/${query}.json`;
     this.placesApi.get<IPlaces>(url, {
