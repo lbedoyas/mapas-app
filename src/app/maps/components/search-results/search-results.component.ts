@@ -10,6 +10,8 @@ import { MapService } from '../../services/map.service';
 })
 export class SearchResultsComponent {
 
+  public selectedId: string = '';
+
   constructor(private placesServices: PlacesService, private mapService: MapService) { }
 
   get isLoadingPlaces(): boolean {
@@ -21,6 +23,7 @@ export class SearchResultsComponent {
   }
 
   flyTo(place: Feature ) {
+    this.selectedId =  place.id;
     const [ lng, lat ] = place.center;
     this.mapService.flyTo([lng, lat]);
   }
